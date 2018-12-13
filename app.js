@@ -17,10 +17,10 @@ const argv = yargs
 var encodedAddress = encodeURIComponent(argv.address);
 
 request({
-  url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + encodedAddress,
+  url: 'http://www.mapquestapi.com/geocoding/v1/address?key=dytT15lCJ7c9jgbkbGckrFrXgGizA8Tn&location=' + encodedAddress,
   json: true
 }, (error, response, body) => {
-  console.log('Address: ' + body.results[0].formatted_address);
-  console.log('Latitude: ${body.results[0].geometry.location.lat}');
-  console.log('Longitude: ${body.results[0].geometry.location.lng}');
+  console.log('Address: ' + body.results[0].locations[0].street);
+  console.log('Latitude: ' + body.results[0].locations[0].latLng.lat);
+  console.log('Longitude: ' + body.results[0].locations[0].latLng.lng);
 });
