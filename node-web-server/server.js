@@ -9,18 +9,24 @@ app.use(express.static(__dirname + '/public'));
 
 const year = new Date().getFullYear();
 
+hbs.registerHelper('getCurrentYear', () => {
+  return new Date().getFullYear();
+});
+
+hbs.registerHelper('screamIt', (text) => {
+  return text.toUpperCase();
+});
+
 app.get('/', (req, res) => {
   res.render('home.hbs', {
     pageTitle: 'Welcome!',
-    welcomeMessage: 'Hello and welcome to my handlebars site!',
-    currentYear: year
+    welcomeMessage: 'Hello and welcome to my handlebars site!'
   });
 });
 
 app.get('/about', (req, res) => {
   res.render('about.hbs', {
-    pageTitle: 'About Page',
-    currentYear: year
+    pageTitle: 'About Page'
   });
 });
 
