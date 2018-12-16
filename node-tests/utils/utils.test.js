@@ -19,6 +19,19 @@ it('should square a number', () => {
   // }
 });
 
+it('should async add two numbers', (done) => {
+  utils.asyncAdd(4, 3, (sum) => {
+    expect(sum).toBe(7).toBeA('number');
+    done();
+  });
+});
+
+it ('should async square x', (done) => {
+  utils.asyncSquare(4, (res) => {
+    expect(res).toBe(16).toBeA('number');
+    done();
+  });
+});
 // should verify first and last names are set
 it('should separate first and last name', () => {
   // assert it includes first and last name with proper values
