@@ -18,3 +18,28 @@ it('should square a number', () => {
   //   throw new Error(`Expected 16, but got ${res}.`)
   // }
 });
+
+// should verify first and last names are set
+it('should separate first and last name', () => {
+  // assert it includes first and last name with proper values
+  var user = {location: 'Philadelphia', age: 25};
+  var res = utils.setName(user, 'Lisa Olson');
+
+  expect(res).toInclude({
+    firstName: 'Lisa',
+    lastName: 'Olson'
+  });
+});
+
+// it('should expect values', () => {
+//   // expect(12).toNotBe(11);
+//   // expect({name: 'Andrew'}).toEqual({name: 'Andrew'})
+//   // expect([2,3,4]).toInclude(4);
+//   expect({
+//     name: 'Andrew',
+//     age: 25,
+//     location: 'Philadelphia'
+//   }).toInclude({
+//     age: 25
+//   })
+// });
