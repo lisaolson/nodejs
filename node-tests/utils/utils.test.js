@@ -2,36 +2,43 @@ const expect = require('expect');
 
 const utils = require('./utils');
 
-it('should add two numbers', () => {
-  var res = utils.add(33, 11);
+describe('Utils', () => {
 
-  expect(res).toBe(44).toBeA('number');
-//   if (res !== 44) {
-//     throw new Error(`Expected 44, but got ${res}.`)
-//   }
-});
+  describe('#add', () => {
+    it('should add two numbers', () => {
+      var res = utils.add(33, 11);
 
-it('should square a number', () => {
-  var res = utils.square(4);
-  expect(res).toBe(16).toBeA('number');
-  // if (res != 16) {
-  //   throw new Error(`Expected 16, but got ${res}.`)
-  // }
-});
-
-it('should async add two numbers', (done) => {
-  utils.asyncAdd(4, 3, (sum) => {
-    expect(sum).toBe(7).toBeA('number');
-    done();
+      expect(res).toBe(44).toBeA('number');
+    //   if (res !== 44) {
+    //     throw new Error(`Expected 44, but got ${res}.`)
+    //   }
+    });
   });
-});
 
-it ('should async square x', (done) => {
-  utils.asyncSquare(4, (res) => {
+  it('should square a number', () => {
+    var res = utils.square(4);
     expect(res).toBe(16).toBeA('number');
-    done();
+    // if (res != 16) {
+    //   throw new Error(`Expected 16, but got ${res}.`)
+    // }
+  });
+
+  it('should async add two numbers', (done) => {
+    utils.asyncAdd(4, 3, (sum) => {
+      expect(sum).toBe(7).toBeA('number');
+      done();
+    });
+  });
+
+  it ('should async square x', (done) => {
+    utils.asyncSquare(4, (res) => {
+      expect(res).toBe(16).toBeA('number');
+      done();
+    });
   });
 });
+
+
 // should verify first and last names are set
 it('should separate first and last name', () => {
   // assert it includes first and last name with proper values
